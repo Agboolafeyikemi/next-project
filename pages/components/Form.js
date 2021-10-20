@@ -30,7 +30,7 @@ export default function Home() {
             <form
               name="contact"
               method="POST"
-              //   action="/?success=true"
+              action="/?success=true"
               data-netlify="true"
             >
               <input type="hidden" name="form-name" value="contact" />
