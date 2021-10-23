@@ -54,21 +54,21 @@ const Modal = ({ showModal, setShowModal }) => {
   };
 
   //   const onSubmit = async (values) => {};
-  const onSubmit = (values, actions) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values }),
-    })
-      .then(() => {
-        alert("Success");
-        actions.resetForm();
-      })
-      .catch(() => {
-        alert("Error");
-      })
-      .finally(() => actions.setSubmitting(false));
-  };
+  //   const onSubmit = (values, actions) => {
+  //     fetch("/", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //       body: encode({ "form-name": "contact", ...values }),
+  //     })
+  //       .then(() => {
+  //         alert("Success");
+  //         actions.resetForm();
+  //       })
+  //       .catch(() => {
+  //         alert("Error");
+  //       })
+  //       .finally(() => actions.setSubmitting(false));
+  //   };
   return (
     <AnimatePresence>
       {showModal && (
@@ -104,7 +104,23 @@ const Modal = ({ showModal, setShowModal }) => {
                 subject: "",
                 message: "",
               }}
-              onSubmit={onSubmit}
+              onSubmit={(values, actions) => {
+                fetch("/", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                  },
+                  body: encode({ "form-name": "contact", ...values }),
+                })
+                  .then(() => {
+                    alert("Success");
+                    actions.resetForm();
+                  })
+                  .catch(() => {
+                    alert("Error");
+                  })
+                  .finally(() => actions.setSubmitting(false));
+              }}
               validateOnChange={true}
               validateOnBlur={true}
               validateOnMount={true}
@@ -117,7 +133,7 @@ const Modal = ({ showModal, setShowModal }) => {
                 values,
                 isValid,
               }) => (
-                <form
+                <Form
                   name="contact"
                   //   method="POST"
                   //   action="/?success=true"
@@ -188,7 +204,7 @@ const Modal = ({ showModal, setShowModal }) => {
                     </div> */}
                     <button type="submit">Submit</button>
                   </div>
-                </form>
+                </Form>
               )}
             </Formik>
           </motion.div>
