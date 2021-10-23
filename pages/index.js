@@ -1,9 +1,12 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import Layout, { siteTitle } from "./components/layouts";
 import utilStyles from "./styles/utils.module.css";
 import Form from "./components/Form";
+import Modal from "../component/Modal";
 
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
   return (
     // <Layout home >
     //   <Head>
@@ -17,6 +20,10 @@ export default function Home() {
     //     </p>
     //   </section>
     // </Layout>
-    <Form />
+    // <Form />
+    <>
+      <button onClick={() => setShowModal(!showModal)}>Join us now</button>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+    </>
   );
 }

@@ -1,0 +1,128 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 25, 40, 0.8);
+  backdrop-filter: blur(1px);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  max-width: 32em;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  padding: 30px 20px 50px;
+  background: white;
+  border-radius: 10px;
+  width: 40%;
+}
+
+.modal form label {
+  display: block;
+  font-family: var(--global-font-family);
+  color: #374b58;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 13px;
+}
+
+.modal .input {
+  font-size: 16px;
+  font-family: inherit;
+  height: 54px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 18px 12px;
+  width: 100%;
+}
+
+.modal .input.error {
+  border: 1px solid red;
+}
+
+.modal .input.message {
+  height: 122px;
+}
+
+.modal .input::placeholder {
+  color: rgba(55, 75, 88, 0.4);
+}
+
+.modal form button[type="submit"] {
+  margin-top: 20px;
+  height: 54px;
+  font-size: 18px;
+  background: #004799;
+  border-radius: 6px;
+  background-color: #004799;
+  color: #fff;
+  width: 100%;
+  border: 0;
+}
+
+.modal h1 {
+  font-family: var(--global-font-family);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0;
+  color: #004799;
+}
+
+.modal .wrapper {
+  margin-top: 30px;
+  padding: 0 2em;
+}
+
+/* The div that wraps each label and input, analogous to a FormGroup */
+.modal .wrapper > div {
+  margin-bottom: 20px;
+}
+
+.modal .errorMessage {
+  font-size: 14px;
+  color: red;
+}
+
+/* loader */
+.loader {
+  width: 10px;
+  height: 10px;
+  margin: 40px auto;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-items: flex-end;
+  margin: 0% 5%;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 600px) {
+  .modal {
+    margin-top: 0;
+    border-radius: 0;
+    height: auto;
+    width: 100% !important;
+  }
+  .modal .wrapper {
+    padding: 0;
+  }
+}
